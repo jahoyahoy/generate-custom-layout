@@ -1,270 +1,313 @@
-/* SignIn Component Styles */
+:root {
+	--color-primary: #000000;
+	--color-white: #fff;
+	--color-black: #000;
+	--color-grey-dark: #333;
+	--color-grey-medium: #666;
+	--color-grey-light: #e1e5e9;
+	--color-grey-bg: rgba(248, 249, 250, 0.8);
+	--color-blue: #3498db;
+	--color-blue-bg: rgba(52, 152, 219, 0.1);
+	--color-blue-border: rgba(52, 152, 219, 0.2);
+	--color-error: #e74c3c;
+	--color-error-bg: rgba(231, 76, 60, 0.1);
+	--color-error-border: rgba(231, 76, 60, 0.2);
+	--color-disabled: #ccc;
+
+	--font-family-main: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	--font-family-alt: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+	--border-radius-small: 2px;
+	--border-radius-medium: 8px;
+	--border-radius-large: 12px;
+
+	--box-shadow-main: 0 20px 40px rgba(0, 0, 0, 0.1);
+	--box-shadow-hover: 0 10px 20px rgba(114, 21, 21, 0.3);
+
+	--backdrop-blur: blur(20px);
+}
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 .signin-page {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #333;
-  background-attachment: fixed;
-  background-color: #fff;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  line-height: 1.5;
+	font-family: var(--font-family-main);
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: var(--color-grey-dark);
+	background-attachment: fixed;
+	background-color: var(--color-white);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	line-height: 1.5;
 }
 
 /* Hide background image on smaller screens */
 @media only screen and (max-width: 600px) {
-  img[data-tenant-branding-background="true"] {
-    display: none;
-  }
+	img[data-tenant-branding-background='true'] {
+		display: none;
+	}
 }
 
 /* Background image for tenant branding */
-img[data-tenant-branding-background="true"] {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  position: fixed;
-  left: 0;
-  overflow: hidden;
-  top: 0;
+img[data-tenant-branding-background='true'] {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	z-index: 0;
+	position: fixed;
+	left: 0;
+	overflow: hidden;
+	top: 0;
 }
 
 /* Div that holds background branding */
-div[data-tenant-branding-background-color="true"] {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: 0;
+div[data-tenant-branding-background-color='true'] {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 0;
+}
+
+/* Logo for tenant branding */
+img[data-tenant-branding-logo='true'] {
+	max-width: 200px;
+	margin: 0 auto;
+	display: block;
+	margin-bottom: 20px;
 }
 
 img {
-  vertical-align: middle;
-  border: 0;
+	vertical-align: middle;
+	border: 0;
 }
 
 .auth-container {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-radius: 2px;
-  padding: 40px;
-  max-width: 450px;
-  width: 100%;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  text-align: center;
-  position: relative;
-  z-index: 1;
+	background: rgba(255, 255, 255, 0.95);
+	backdrop-filter: var(--backdrop-blur);
+	border-radius: var(--border-radius-small);
+	padding: 40px;
+	max-width: 450px;
+	width: 100%;
+	box-shadow: var(--box-shadow-main);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	text-align: center;
+	position: relative;
+	z-index: 1;
 }
 
 .auth-header {
-  text-align: center;
-  margin-bottom: 2rem;
+	text-align: center;
+	margin-bottom: 2rem;
 }
 
 .auth-title {
-  font-size: 1.8rem;
-  color: #333;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+	font-size: 1.8rem;
+	color: var(--color-grey-dark);
+	font-weight: 600;
+	margin-bottom: 0.5rem;
 }
 
 .auth-subtitle {
-  color: #666;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  transition: all 0.3s ease;
+	color: var(--color-grey-medium);
+	font-size: 0.95rem;
+	line-height: 1.5;
+	transition: all 0.3s ease;
 }
 
 /* Custom continue button for email verification */
 .continue-btn {
-  width: 100% !important;
-  padding: 12px 24px !important;
-  border: none !important;
-  border-radius: 12px !important;
-  font-size: 1rem !important;
-  cursor: pointer !important;
-  transition: all 0.3s ease !important;
-  font-weight: 500 !important;
-  background: #000000 !important;
-  color: white !important;
-  margin-top: 1rem !important;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
-  display: block !important;
+	width: 100% !important;
+	padding: 12px 24px !important;
+	border: none !important;
+	border-radius: var(--border-radius-large) !important;
+	font-size: 1rem !important;
+	cursor: pointer !important;
+	transition: all 0.3s ease !important;
+	font-weight: 500 !important;
+	background: var(--color-primary) !important;
+	color: var(--color-white) !important;
+	margin-top: 1rem !important;
+	font-family: var(--font-family-alt) !important;
+	display: block !important;
 }
 
 .continue-btn:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
+	transform: translateY(-2px) !important;
+	box-shadow: var(--box-shadow-hover) !important;
 }
 
 .continue-btn:disabled {
-  background: #ccc !important;
-  cursor: not-allowed !important;
-  transform: none !important;
-  box-shadow: none !important;
+	background: var(--color-disabled) !important;
+	cursor: not-allowed !important;
+	transform: none !important;
+	box-shadow: none !important;
 }
 
 /* Domain notification for custom idp users */
 .domain-notification {
-  background: rgba(52, 152, 219, 0.1);
-  border: 1px solid rgba(52, 152, 219, 0.2);
-  border-radius: 8px;
-  padding: 12px;
-  color: #3498db;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-  display: none;
-  animation: slideDown 0.3s ease;
+	background: var(--color-blue-bg);
+	border: 1px solid var(--color-blue-border);
+	border-radius: var(--border-radius-medium);
+	padding: 12px;
+	color: var(--color-blue);
+	font-size: 0.9rem;
+	margin-bottom: 1rem;
+	display: none;
 }
 
 .domain-notification.show {
-  display: block;
+	display: block;
 }
 
 /* Azure B2C API container */
 #api {
-  margin-top: 1rem;
+	margin-top: 1rem;
 }
 
+/* Hide B2C default intro/heading */
 #api .intro h2 {
-  display: none;
+	display: none;
 }
 
 #api .entry {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 /* Style B2C form inputs */
-#api input[type="email"],
-#api input[type="password"],
-#api input[type="text"] {
-  width: 100% !important;
-  padding: 12px 16px !important;
-  border: 2px solid #e1e5e9 !important;
-  border-radius: 2px !important;
-  font-size: 1rem !important;
-  transition: all 0.3s ease !important;
-  background: rgba(248, 249, 250, 0.8) !important;
-  margin-bottom: 1rem !important;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+#api input[type='email'],
+#api input[type='password'],
+#api input[type='text'] {
+	width: 100% !important;
+	padding: 12px 16px !important;
+	border: 2px solid var(--color-grey-light) !important;
+	border-radius: var(--border-radius-small) !important;
+	font-size: 1rem !important;
+	transition: all 0.3s ease !important;
+	background: var(--color-grey-bg) !important;
+	margin-bottom: 1rem !important;
+	font-family: var(--font-family-alt) !important;
 }
 
 /* Initially hide password field, signin button and related elements */
-#api input[type="password"],
-#api input[type="password"] + label,
-#api label[for*="password"],
+#api input[type='password'],
+#api input[type='password'],
+#api label[for*='password'],
 #api .password,
-#forgotPassword,
-#api button[type="submit"],
-#api input[type="submit"] {
-  display: none !important;
-  opacity: 0 !important;
-  transition: all 0.3s ease !important;
+#api button[type='submit'],
+#api input[type='submit'] {
+	display: none !important;
+	opacity: 0 !important;
+	transition: all 0.3s ease !important;
+}
+
+/* Hide all labels */
+#api label {
+	display: none !important;
 }
 
 /* Show password field and signin button when email-verified class is added */
-.email-verified #api input[type="password"],
-.email-verified #api input[type="password"] + label,
-.email-verified #api label[for*="password"],
+.email-verified #api input[type='password'],
+.email-verified #api input[type='password'],
 .email-verified #api .password,
-.email-verified #forgotPassword,
-.email-verified #api button[type="submit"],
-.email-verified #api input[type="submit"] {
-  display: block !important;
-  opacity: 1 !important;
-  animation: slideIn 0.3s ease !important;
+.email-verified #api button[type='submit'],
+.email-verified #api input[type='submit'] {
+	display: block !important;
+	opacity: 1 !important;
+}
+
+/* Keep labels hidden even when email is verified */
+.email-verified #api label {
+	display: none !important;
 }
 
 /* Hide continue button when password is shown */
 .email-verified .continue-btn {
-  display: none !important;
+	display: none !important;
 }
 
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Move forgot password below password field and show it when email is verified */
+#forgotPassword {
+	display: none !important;
+	opacity: 0 !important;
+	transition: all 0.3s ease !important;
+	margin-top: 0.5rem !important;
+	margin-bottom: 1rem !important;
+	text-align: right !important;
+	font-size: 0.9rem !important;
+	order: 2 !important;
 }
 
-#api input[type="email"]:focus,
-#api input[type="password"]:focus,
-#api input[type="text"]:focus {
-  outline: none !important;
-  border-color: #000000 !important;
-  background: white !important;
-  transform: scale(1.02) !important;
+.email-verified #forgotPassword {
+	display: block !important;
+	opacity: 1 !important;
 }
 
-/* Style B2C labels */
-#api label {
-  display: block !important;
-  margin-bottom: 0.5rem !important;
-  color: #333 !important;
-  font-weight: 500 !important;
-  font-size: 0.9rem !important;
+/* Ensure password field container allows reordering */
+.email-verified #api .password {
+	display: flex !important;
+	flex-direction: column !important;
+}
+
+#api input[type='email']:focus,
+#api input[type='password']:focus,
+#api input[type='text']:focus {
+	outline: none !important;
+	border-color: var(--color-primary) !important;
+	background: var(--color-white) !important;
+	transform: scale(1.02) !important;
 }
 
 /* Style B2C buttons */
 #api button,
-#api input[type="submit"] {
-  width: 100% !important;
-  padding: 12px 24px !important;
-  border: none !important;
-  border-radius: 12px !important;
-  font-size: 1rem !important;
-  cursor: pointer !important;
-  transition: all 0.3s ease !important;
-  font-weight: 500 !important;
-  background: #000000 !important;
-  color: white !important;
-  margin-top: 1rem !important;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif !important;
+#api input[type='submit'] {
+	width: 100% !important;
+	padding: 12px 24px !important;
+	border: none !important;
+	border-radius: var(--border-radius-large) !important;
+	font-size: 1rem !important;
+	cursor: pointer !important;
+	transition: all 0.3s ease !important;
+	font-weight: 500 !important;
+	background: var(--color-primary) !important;
+	color: var(--color-white) !important;
+	margin-top: 1rem !important;
+	font-family: var(--font-family-alt) !important;
 }
 
 #api button:hover,
-#api input[type="submit"]:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3) !important;
+#api input[type='submit']:hover {
+	transform: translateY(-2px) !important;
+	box-shadow: var(--box-shadow-hover) !important;
 }
 
 /* Style error messages */
 #api .error,
 #api .alert {
-  background: rgba(231, 76, 60, 0.1) !important;
-  border: 1px solid rgba(231, 76, 60, 0.2) !important;
-  border-radius: 8px !important;
-  padding: 12px !important;
-  color: #e74c3c !important;
-  font-size: 0.9rem !important;
-  margin-bottom: 1rem !important;
+	background: var(--color-error-bg) !important;
+	border: 1px solid var(--color-error-border) !important;
+	border-radius: var(--border-radius-medium) !important;
+	padding: 12px !important;
+	color: var(--color-error) !important;
+	font-size: 0.9rem !important;
+	margin-bottom: 1rem !important;
 }
 
 /* Style validation errors */
-#api .field-validation-error,
-.field-validation-error {
-  color: #e74c3c !important;
-  font-size: 0.85rem !important;
-  margin-top: 0.5rem !important;
-  font-weight: 500 !important;
+#api .field-validation-error {
+	color: var(--color-error) !important;
+	font-size: 0.85rem !important;
+	margin-top: 0.5rem !important;
+	font-weight: 500 !important;
 }
 
 /* Hide SSO buttons by default */
@@ -272,91 +315,29 @@ img {
 #api .accountButton,
 #api .claims-provider-list-buttons,
 #api .intro p {
-  display: none !important;
-}
-
-/* Show SSO buttons only when explicitly enabled */
-.show-sso #api .accountButton,
-.show-sso #api .claims-provider-list-buttons {
-  display: block !important;
-  width: 100% !important;
-  padding: 12px 16px !important;
-  margin-bottom: 8px !important;
-  border: 2px solid #e1e5e9 !important;
-  border-radius: 12px !important;
-  background: white !important;
-  color: #333 !important;
-  font-size: 0.95rem !important;
-  transition: all 0.3s ease !important;
-}
-
-.show-sso #api .accountButton:hover {
-  border-color: #667eea !important;
-  background: rgba(102, 126, 234, 0.05) !important;
-  transform: translateY(-1px) !important;
-}
-
-/* Style divider */
-#api .divider {
-  text-align: center !important;
-  margin: 1.5rem 0 !important;
-  position: relative !important;
-}
-
-#api .divider::before {
-  content: "" !important;
-  position: absolute !important;
-  top: 50% !important;
-  left: 0 !important;
-  right: 0 !important;
-  height: 1px !important;
-  background: #e1e5e9 !important;
-}
-
-#api .divider span {
-  background: rgba(255, 255, 255, 0.95) !important;
-  padding: 0 1rem !important;
-  color: #666 !important;
-  font-size: 0.9rem !important;
-}
-
-/* Loading state */
-.loading {
-  opacity: 0.7;
-  pointer-events: none;
+	display: none !important;
 }
 
 /* Responsive design */
 @media (max-width: 480px) {
-  .auth-container {
-    padding: 30px 20px;
-    margin: 10px;
-  }
+	.auth-container {
+		padding: 30px 20px;
+		margin: 10px;
+	}
 
-  .auth-title {
-    font-size: 1.5rem;
-  }
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+	.auth-title {
+		font-size: 1.5rem;
+	}
 }
 
 /* Hide B2C default container styling */
 #api .entry-item {
-  background: none !important;
-  border: none !important;
-  padding: 0 !important;
+	background: none !important;
+	border: none !important;
+	padding: 0 !important;
 }
 
 /* Hide B2C default title */
 #api .heading h1 {
-  display: none !important;
+	display: none !important;
 }
